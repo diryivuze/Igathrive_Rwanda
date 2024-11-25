@@ -23,8 +23,10 @@ import Relaxation from "./pages/Relaxation";
 import Completed from "./pages/Completed";
 import StudentSettings from "./pages/StudentSettings";
 import MentorDash from "./pages/MentorDash";
-import NotFound from "./pages/NotFound"; // Create this component for 404 pages.
+import NotFound from "./pages/NotFound"; 
 import MentorCourses from "./pages/MentorCourses";
+import MentorStudents from "./pages/MentorStudents";
+import Feedback from "./pages/Feedback";
 
 const App = () => {
   const userinfo =JSON.parse(localStorage.getItem("userinfo"))
@@ -92,9 +94,10 @@ const App = () => {
           <Route path="/progress-courses" element={<Progress />} />
           <Route path="/completed-courses" element={<Completed />} />
           <Route path="/gamming" element={<Relaxation />} />
+          <Route path="/all-students" element={<MentorStudents />} />
           <Route path="/settings" element={<StudentSettings />} />
           <Route path="/mentor-courses" element={<MentorCourses />} />
-
+          <Route path="/feedback" element={<Feedback />} />
           {/* 404 Fallback */}
           <Route path="*" element={<NotFound />} />
         </Routes>

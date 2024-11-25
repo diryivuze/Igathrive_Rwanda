@@ -102,7 +102,7 @@ const MentorSide = () => {
           </div>
           {!isCollapsed && (
             <div className="flex-1 min-w-0">
-              <h2 className="font-bold truncate">Loue Sauveur Christian</h2>
+              <h2 className="font-bold truncate">Loue Christian</h2>
               <p className="text-sm text-slate-400 truncate">Mentor</p>
             </div>
           )}
