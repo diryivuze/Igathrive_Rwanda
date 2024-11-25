@@ -83,7 +83,7 @@ const App = () => {
           {/* Shared or Protected Routes */}
           <Route path="/courses" element={<Courses />} />
           <Route path="/students" element={<Students />} />
-          <Route path="/admin-inquiries" element={<QandA />} />
+          <Route path="/admin-questions" element={<QandA />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/mentors" element={<Mentor />} />
           <Route path="/new-courses" element={<NewCourses />} />

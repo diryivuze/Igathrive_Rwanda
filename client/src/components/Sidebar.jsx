@@ -21,7 +21,7 @@ const Sidebar = () => {
     { icon: LayoutDashboard, label: 'Dashboard', path: '/admin-dashboard' },
     { icon: BookOpen, label: 'Courses', path: '/courses' },
     { icon: Users, label: 'Students', path: '/students' },
-    { icon: HelpCircle, label: 'Q&A', path: '/admin-iquiries' },
+    { icon: HelpCircle, label: 'Q&A', path: '/admin-questions' },
     { icon: UserCheck, label: 'Mentors', path: '/mentors' }, // Updated icon for Mentors
   ];
 
