@@ -160,31 +160,15 @@ const MentorSide = () => {
             ))}
           </div>
         </nav>
-
       {/* Logout Section */}
-      <div className="border-t border-slate-700 p-3">
-        <Link
-          to="/"
-          className={`flex items-center px-3 py-3 rounded-lg text-red-400 
-            hover:bg-red-500/10 hover:text-red-300 transition-colors duration-200 ${
-              isCollapsed ? 'justify-center' : 'space-x-3'
-            } group relative`}
-        >
-          <LogOut className="h-5 w-5" />
-          {!isCollapsed && <span>Logout</span>}
-          {isCollapsed && (
-            <div
-              className="absolute left-full ml-2 px-2 py-1 bg-slate-800 text-white 
-              rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible 
-              transition-all duration-200 text-sm whitespace-nowrap"
-            >
-              Logout
-            </div>
-          )}
-        </Link>
+      <div className="border-t border-slate-700 p-3 flex items-center justify-center">
+
+          <Logout className="h-5 w-5" />
+       
+
       </div>
-    </div>
-    </>
+      </div>
+   </>
   );
 };
 
