@@ -19,7 +19,7 @@ const MentorSide = () => {
 
   const menuItems = [
     { icon: LayoutDashboard, label: 'Dashboard', path: '/mentor-dashboard' },
-    { icon: BookOpen, label: 'Courses', path: '/unique-courses' },
+    { icon: BookOpen, label: 'Courses', path: '/mentor-courses' },
     { icon: Users, label: 'Students', path: '/all-students' },
     { icon: Bell, label: 'Feedback', path: '/feedback' },
   ];
