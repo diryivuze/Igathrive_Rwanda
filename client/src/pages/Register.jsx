@@ -2,18 +2,20 @@ import React, { useState } from 'react';
 import { FaUser, FaEnvelope, FaLock, FaHome, FaEye, FaEyeSlash, FaPhoneAlt, FaCalendarDay } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import axios from "axios";
 
 const Register = () => {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [formData, setFormData] = useState({
-    fullName: '',
+    username: '',
     email: '',
     password: '',
     confirmPassword: '',
     phoneNumber: '',
-    date: ''
   });
 
   const handleChange = (e) => {
@@ -23,13 +25,30 @@ const Register = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     if (formData.password !== formData.confirmPassword) {
       alert("Passwords do not match.");
       return; // Prevent form submission
     }
-    console.log('Form submitted:', formData);
+    try {
+      const req = await axios.post(
+        `${import.meta.env.VITE_MAIN_URL}/auth/register`,
+        {
+          "email": formData.email,
+          "username": formData.username,
+          "role": "student",
+          "password": formData.password
+        }
+      );
+      if (req.status === 200) {
+        window.location.href="/login"
+      }
+    }catch(err){
+      console.log(err)
+      setError(err.response?.data?.detail || "Failed to process Register request");
+      setLoading(false);
+    }
   };
 
   return (
@@ -66,7 +85,11 @@ const Register = () => {
                 <h2 className="text-3xl font-bold text-blue-950 mb-2">Create Account</h2>
                 <p className="text-gray-600">Join IgaThrive and start your learning journey</p>
               </div>
-
+              {error && (
+                    <div className="mb-4 p-4 bg-red-50 border-l-4 border-red-500 text-red-700">
+                      {error}
+                    </div>
+                  )}
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Full Name Input */}
                 <div className="relative">
@@ -75,8 +98,8 @@ const Register = () => {
                   </div>
                   <input
                     type="text"
-                    name="fullName"
-                    value={formData.fullName}
+                    name="username"
+                    value={formData.username}
                     onChange={handleChange}
                     className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300"
                     placeholder="Full Name"

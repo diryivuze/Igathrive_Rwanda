@@ -25,7 +25,9 @@ import StudentSettings from "./pages/StudentSettings";
 import MentorDash from "./pages/MentorDash";
 import NotFound from "./pages/NotFound"; // Create this component for 404 pages.
 
-const App = ({ userinfo }) => {
+const App = () => {
+  const userinfo =JSON.parse(localStorage.getItem("userinfo"))
+
   const getDashboardComponent = () => {
     if (!userinfo) return <Login />;
     switch (userinfo?.user_info?.role) {
@@ -70,13 +72,13 @@ const App = ({ userinfo }) => {
           <Route path="/features" element={<Features />} />
           <Route path="/help" element={<Help />} />
           <Route path="/experience" element={<Experience />} />
-          <Route path="/register" element={!userinfo ? <Register /> : <Navigate to="/dashboard" />} />
-          <Route path="/login" element={!userinfo ? <Login /> : <Navigate to="/dashboard" />} />
+          <Route path="/register" element={!userinfo ? <Register /> : getDashboardComponent()} />
+          <Route path="/login" element={!userinfo ? <Login /> : getDashboardComponent()} />
 
           {/* Role-Based Routes */}
-          <Route path="/admin-dashboard" element={userinfo?.user_info?.role === "admin" ? <Dashboard /> : <Navigate to="/login" />} />
-          <Route path="/mentor-dashboard" element={userinfo?.user_info?.role === "mentor" ? <MentorDash /> : <Navigate to="/login" />} />
-          <Route path="/student-dashboard" element={userinfo?.user_info?.role === "student" ? <StudentDash /> : <Navigate to="/login" />} />
+          <Route path="/admin-dashboard" element={userinfo?.user_info?.role === "admin" ? <Dashboard /> : <Login/>} />
+          <Route path="/mentor-dashboard" element={userinfo?.user_info?.role === "mentor" ? <MentorDash /> : <Login/>} />
+          <Route path="/student-dashboard" element={userinfo?.user_info?.role === "student" ? <StudentDash /> : <Login/>} />
 
           {/* Shared or Protected Routes */}
           <Route path="/courses" element={<Courses />} />
