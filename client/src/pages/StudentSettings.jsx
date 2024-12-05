@@ -28,7 +28,7 @@ const StudentSettings = () => {
     lastName: '',
     email: '',
     phone: '',
-    avatar: '',
+    avatar: '/images/man.jpg',
     currentPassword: '',
     newPassword: '',
     confirmPassword: '',

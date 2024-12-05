@@ -56,7 +56,7 @@ const StudentSide = () => {
         >
           <div className="relative">
             <img
-              src=""
+              src="/images/man.jpg"
               alt="Student"
               className={`rounded-full border-2 border-blue-500 transition-transform duration-200 hover:scale-105
               ${isCollapsed ? 'w-8 h-8' : 'w-12 h-12'}`}
