@@ -24,11 +24,11 @@ const StudentSettings = () => {
   const [showMobileSidebar, setShowMobileSidebar] = useState(false);
   const [activeTab, setActiveTab] = useState('personal');
   const [formData, setFormData] = useState({
-    firstName: 'Christophe',
-    lastName: 'Muneza',
-    email: 'christophermuneza1@gmail.com',
-    phone: '+250 788 673 682',
-    avatar: '/images/christopher.jpg',
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    avatar: '',
     currentPassword: '',
     newPassword: '',
     confirmPassword: '',

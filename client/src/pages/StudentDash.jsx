@@ -110,7 +110,7 @@ const StudentDash = () => {
         <div className="flex-1 p-4 sm:p-6 lg:p-8">
           {/* Welcome Section */}
           <div className="bg-white rounded-lg shadow-sm p-4 sm:p-6 mb-6 sm:mb-8">
-            <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2">Welcome back, Muneza!</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2">Welcome back!</h2>
             <p className="text-sm sm:text-base text-gray-600">Track your progress and stay up to date with your courses.</p>
           </div>
 
